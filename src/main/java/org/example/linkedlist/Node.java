@@ -1,4 +1,4 @@
-package org.example;
+package org.example.linkedlist;
 
 public class Node {
     String data;

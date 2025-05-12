@@ -1,4 +1,4 @@
-package org.example;
+package org.example.linkedlist;
 
 public class Main {
     Node head = null;
