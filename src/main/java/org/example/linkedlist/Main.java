@@ -5,7 +5,7 @@ public class Main {
 
     public static void main(String[] args) {
         Node n1 = new Node("Arjun");
-        Node n2 = new Node("Dhanashri");
+        Node n2 = new Node("Hello");
         Node n3 = new Node("Chetansir");
 
         Main app = new Main();
