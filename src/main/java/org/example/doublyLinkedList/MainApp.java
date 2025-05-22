@@ -14,7 +14,7 @@ public class MainApp {
         app.insert(n2);
         app.insert(n3);
 //        app.display();
-        app.display(false);
+        app.display(true);
     }
 
     private void display() {
@@ -43,13 +43,17 @@ public class MainApp {
             head = ref;
             tail = ref;
         } else {
-            Node current=head;
-            while (current.next != null) {
-                current = current.next;
-            }
-            current.next = ref;
+            Node current=tail;
+            tail.next = ref;
             tail = ref;
             tail.previous = current;
+//            Node current = head;
+//            while (current.next != null) {
+//                current = current.next;
+//            }
+//            current.next = ref;
+//            tail = ref;
+//            tail.previous = current;
         }
     }
 }
