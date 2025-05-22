@@ -21,7 +21,7 @@ public class MainApp {
 //        app.insert(n2);
         app.display();
         System.out.println(app.retrieve());
-        System.out.println(app.retrieve(0.4));
+        System.out.println(app.retrieve(0.2));
     }
 
     private Node retrieve() {
