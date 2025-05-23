@@ -7,15 +7,40 @@ public class MainApp {
     public static void main(String[] args) {
         Node n1 = new Node("Arjun");
         Node n2 = new Node("Hello");
-        Node n3 = new Node("Jiya Pagal");
+        Node n3 = new Node("Jiya");
 
         MainApp app = new MainApp();
         app.insert(n1);
         app.insert(n2);
         app.insert(n3);
         app.display();
+        app.delete("Hello");
+        app.display();
 //        app.display(false);
 //        app.display(true, false, false, true, true);
+    }
+
+    private void delete(String str) {
+        Node current = head;
+        if (head.data.equals(str)) {
+            head = head.next;
+        } else {
+            while (!current.next.data.equals(str)) {
+                current = current.next;
+            }
+            current.next = current.next.next;
+            if (current.next != null) {
+                current.next.previous = current;
+            } else {
+                tail = current;
+            }
+//            if (current.next != null) {
+//                current.previous.next = current.next;
+//                current.next.previous = current.previous;
+//            } else {
+//                current.previous.next = null;
+//            }
+        }
     }
 
 //    private void display() {
@@ -26,20 +51,21 @@ public class MainApp {
 //        }
 //    }
 
-    private void display(boolean ...flag) {
+
+    private void display(boolean... flag) {
 //        for(boolean f : flag){
 //            System.out.print(f + " ");
 //        }
 
         System.out.println();
-        if(flag.length == 0 || flag[0]==true){
+        if (flag.length == 0 || flag[0] == true) {
             Node current = head;
             System.out.println("Same order");
             while (current != null) {
                 System.out.println(current.data);
                 current = current.next;
             }
-        } else if(flag.length==1 || flag[1]==false){
+        } else if (flag.length == 1 || flag[1] == false) {
             Node current = tail;
             System.out.println("Reverse order");
             while (current != null) {
@@ -53,7 +79,7 @@ public class MainApp {
     }
 
     private void insert(Node ref) {
-        if(head == null){
+        if (head == null) {
             head = ref;
             tail = ref;
         } else {
@@ -61,11 +87,11 @@ public class MainApp {
 //            current.next = ref;
 //            tail = ref;
 //            tail.previous = current;
-            Node current = head;
-//              Node current = tail;
-            while (current.next != null) {
-                current = current.next;
-            }
+//            Node current = head;
+            Node current = tail;
+//            while (current.next != null) {
+//                current = current.next;
+//            }
             current.next = ref;
             tail = ref;
             tail.previous = current;
