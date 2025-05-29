@@ -5,17 +5,20 @@ public class MainApp {
     Node tail;
 
     public static void main(String[] args) {
-        Node n1 = new Node("Arjun");
-        Node n2 = new Node("Hello");
-        Node n3 = new Node("Jiya");
+        Node n1 = new Node("Ninja Hathodi");
+        Node n2 = new Node("Mighty Raju");
+        Node n3 = new Node("Jaggu Bandar");
+        Node n4 = new Node("Chhota Bheem");;
 
         MainApp app = new MainApp();
         app.insert(n1);
         app.insert(n2);
         app.insert(n3);
         app.display();
-        app.delete("Hello");
+        app.insert(n4, 2);
         app.display();
+//        app.delete("Hello");
+//        app.display();
 //        app.display(false);
 //        app.display(true, false, false, true, true);
     }
@@ -95,6 +98,30 @@ public class MainApp {
             current.next = ref;
             tail = ref;
             tail.previous = current;
+        }
+    }
+
+    public void insert(Node ref, int pos){
+        Node current = head;
+        int curPos = 1;
+        if(curPos == pos){
+            current.previous = ref;
+            head = ref;
+            ref.next = current;
+            return;
+        }
+        while(curPos < pos-1){
+            current = current.next;
+            curPos++;
+        }
+        if(current.next != null){
+            ref.next = current.next;
+            current.next = ref;
+            ref.next.previous = ref;
+            ref.previous = current;
+        } else {
+            current.next = ref;
+            tail = ref;
         }
     }
 }
