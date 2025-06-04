@@ -1,35 +1,47 @@
 package org.example.queue;
 
 public class Queue {
-    private static Queue single = new Queue();
-    private Node[] queue = new Node[10];
-    private int position = 0;
-    private int head = 0;
+    private static Queue single=new Queue();
 
-    public Queue() {
+    private final Node[] queue=new Node[10];
+    private int head=0;
+    private int tail=0;
+
+    private final int sizeOfQueue=queue.length;
+
+    private Queue() {
+        // TODO Auto-generated constructor stub
     }
 
-    public static Queue getObject() {
+    public static Queue getObject()
+    {
         return single;
     }
 
-    public void push(Node ref) {
-        queue[position] = ref;
-        position++;
-    }
-
-    public void pop() {
-        queue[head] = null;
-        head++;
-    }
-
-    public Node top() {
-        return queue[head];
-    }
-
-    public void display() {
-        for (int i = 0; i < position; i++) {
-            System.out.println(queue[i].data);
+    public void insert(Node ref)
+    {
+        queue[tail]=ref;
+        tail++;
+        if(tail==sizeOfQueue)
+        {
+            System.out.println("Queue is full");
         }
+    }
+
+    public Node read()
+    {
+        Node ref=queue[head];
+//		queue[head]=null;
+        head++;
+        if(head==tail)
+        {
+            System.out.println("Queue is empty");
+        }
+        if(head==sizeOfQueue)
+        {
+            head=0;
+            tail=0;
+        }
+        return ref;
     }
 }

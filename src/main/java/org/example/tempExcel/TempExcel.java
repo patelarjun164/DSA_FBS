@@ -21,7 +21,7 @@ public class TempExcel {
         try (FileInputStream fis = new FileInputStream("student_records.xlsx");
              Workbook workbook = new XSSFWorkbook(fis)) {
 
-            Sheet sheet = workbook.getSheetAt(0); // get first sheet
+            Sheet sheet = workbook.getSheetAt(0);
 
             //get the mail coloumn index
             Row header = sheet.getRow(0);

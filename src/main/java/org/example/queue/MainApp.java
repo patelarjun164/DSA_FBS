@@ -3,38 +3,29 @@ package org.example.queue;
 import org.example.stack.Stack;
 
 public class MainApp {
-    Queue object = Queue.getObject();
+//    Queue object = Queue.getObject();
 
     public static void main(String[] args) {
         MainApp app = new MainApp();
-        Node n1 = new Node("Arjun");
-        Node n2 = new Node("Dhanashri");
-        Node n3 = new Node("Jiya");
+        Node n1=new Node("Arjun Patel");
+        Node n2=new Node("Virat Kohli");
+
         app.add(n1);
         app.add(n2);
-        app.display();
-        System.out.println("top " + app.read().data);
-        app.add(n3);
-        System.out.println("top " + app.read().data);
-        app.read();
-        System.out.println("top " + app.read().data);
-        app.display();
 
+        Node returnedValue=app.retrieve();
+        System.out.println(returnedValue.data);
     }
 
-    private void display() {
-        object.display();
+    public void add(Node ref)
+    {
+        Queue object=Queue.getObject();
+        object.insert(ref);
     }
 
-//    private Node getTop() {
-//        return object.top();
-//    }
-
-    private Node read() {
-        return object.top();
-    }
-
-    private void add(Node n1) {
-        object.push(n1);
+    public Node retrieve()
+    {
+        Queue object=Queue.getObject();
+        return object.read();
     }
 }

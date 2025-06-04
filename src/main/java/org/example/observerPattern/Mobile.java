@@ -25,4 +25,11 @@ public class Mobile implements Observer {
         System.out.println("The current temp on mobile is: "+temp);
     }
 
+    public float getTemp() {
+        return temp;
+    }
+
+    public void setTemp(float temp) {
+        this.temp = temp;
+    }
 }

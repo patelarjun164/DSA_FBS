@@ -8,10 +8,12 @@ public class MainApp {
 
         Mobile m1=new Mobile(w1);
         Mobile m2=new Mobile(w1);
-        Mobile m3=new Mobile();
+//        Mobile m3=new Mobile();
 
         w1.changeTemp(12);
         w1.changeTemp(23);
+        w1.unSubscribeObserver(m1);
+        w1.changeTemp(15);
     }
 
 }
